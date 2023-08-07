@@ -8,4 +8,4 @@
       condition: event.payload.message == 'ping'
       action:
         run_job_playbook:
-          name: playbook.yml
+          name: playbooks/playbook.yml

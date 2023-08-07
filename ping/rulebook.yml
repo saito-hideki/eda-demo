@@ -1,0 +1,11 @@
+---
+- name: Demo webhook rulebook
+  hosts: all
+
+  sources:
+  rules:
+    - name: Test connectivity by ping
+      condition: event.payload.message == 'ping'
+      action:
+        run_job_playbook:
+          name: playbook.yml

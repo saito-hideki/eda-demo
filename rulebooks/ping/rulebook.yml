@@ -10,5 +10,6 @@
     - name: Test connectivity by ping
       condition: event.payload.message == 'ping'
       action:
-        run_job_playbook:
-          name: rulebooks/ping/playbooks/playbook.yml
+        run_template:
+          name: Ping
+          organization: Default

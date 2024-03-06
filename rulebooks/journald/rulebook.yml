@@ -1,0 +1,14 @@
+---
+- name: Demo webhook rulebook
+  hosts: all
+
+  sources:
+    - ansible.eda.journald:
+        match: "_EXE=/usr/bin/sudo"
+  rules:
+    - name: Test connectivity by ping
+      condition: event.payload.journald._comm == 'sudo'
+      action:
+        run_job_template:
+          name: Ping
+          organization: Default

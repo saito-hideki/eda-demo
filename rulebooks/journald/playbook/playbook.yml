@@ -1,0 +1,8 @@
+---
+- name: Demo ping playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Ensure connectivity by ping.
+      ansible.builtin.ping:

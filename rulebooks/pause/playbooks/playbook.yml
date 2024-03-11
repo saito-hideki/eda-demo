@@ -1,0 +1,9 @@
+---
+- name: Demo pause playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Pause execution
+      ansible.builtin.pause:
+        seconds: 180

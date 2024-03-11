@@ -9,6 +9,5 @@
     - name: Test connectivity by ping
       condition: event.payload.journald._comm == 'sudo'
       action:
-        run_job_template:
-          name: Ping
-          organization: Default
+        run_playbook:
+          name: ping.yml

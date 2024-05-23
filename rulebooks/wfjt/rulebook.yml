@@ -1,0 +1,15 @@
+---
+- name: Demo webhook rulebook
+  hosts: all
+
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5100
+  rules:
+    - name: Test connectivity by wfjt
+      condition: event.payload.message == 'wfjt'
+      action:
+        run_workflow_template:
+          name: EDA-Workflow
+          organization: Red

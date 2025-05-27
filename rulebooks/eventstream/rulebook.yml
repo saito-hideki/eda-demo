@@ -1,0 +1,12 @@
+---
+- name: Event Steam Testing
+  hosts: all
+  sources:
+    - name: 'basic'
+  rules:
+    - name: Hello, Hello
+      condition: event.payload.message == "hello"
+      action:
+        run_job_template:
+          name: Demo Job Template
+          organization: Default

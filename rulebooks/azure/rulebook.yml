@@ -3,9 +3,10 @@
   hosts: localhost
 
   sources:
-    ansible.eda.azure_service_bus:
-      conn_str: "foo"
-      queue_name: "bar"
+    - name: azure
+      ansible.eda.azure_service_bus:
+        conn_str: "{{connection_str}}"
+        queue_name: "{{connection_str}}"
 
   rules:
     - name: Test connectivity by ping.

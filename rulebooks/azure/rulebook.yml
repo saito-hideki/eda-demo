@@ -1,0 +1,16 @@
+---
+- name: Demo azure module rulebook
+  hosts: localhost
+
+  sources:
+    ansible.eda.azure_service_bus:
+      conn_str: "foo"
+      queue_name: "bar"
+
+  rules:
+    - name: Test connectivity by ping.
+      condition: event.payload.message == 'ping'
+      action:
+        run_job_template:
+          name: Ping
+          organization: Default
